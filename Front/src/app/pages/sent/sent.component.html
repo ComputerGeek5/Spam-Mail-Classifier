@@ -1,0 +1,9 @@
+<div class="content">
+  <div *ngFor="let mail of sent" class="card text-white text-white bg-secondary">
+    <div class="card-body">
+      <span class="mr-5"><em>{{ mail.createdAt }}</em></span>
+      <span class="message">{{ mail.subject }}</span>
+      <a [routerLink]="['/message']" [state]="{mail: mail, permissions: [permission.VIEW]}" class="btn btn-sm btn-info float-right"><i class="fa-solid fa-eye"></i></a>
+    </div>
+  </div>
+</div>

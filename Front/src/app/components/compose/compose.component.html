@@ -1,0 +1,55 @@
+<button type="button" class="btn btn-primary mb-5" data-toggle="modal" data-target="#basicExample" (click)="frame.show()">
+  Compose
+</button>
+
+<div mdbModal #frame="mdbModal" class="modal fade left" id="frameModalTop" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Send Mail</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <form [formGroup]="form" (ngSubmit)="compose()" #myForm="ngForm">
+        <div class="modal-body mx-3">
+
+          <mdb-icon fas icon="tag" class="prefix grey-text mr-2"></mdb-icon><span>Receiver</span>
+          <div class="mb-5 col-md-12">
+            <select type="text" style="width: 100%;" id="receiver" class="form-select-lg" formControlName="receiver">
+              <option *ngFor="let receiver of users" value="{{ receiver.id }}">{{ receiver.firstName }}</option>
+            </select>
+          </div>
+          <h6 *ngIf="receiver.invalid && (receiver.dirty || receiver.touched)" class="error">
+            Input Invalid
+          </h6>
+
+          <mdb-icon fas icon="tag" class="prefix grey-text mr-2"></mdb-icon><span>Subject</span>
+          <div class="md-form mb-5">
+            <input type="text" id="subject" class="form-control" mdbInput formControlName="subject">
+          </div>
+          <h6 *ngIf="subject.invalid && (subject.dirty || subject.touched)" class="error">
+            Input Invalid
+          </h6>
+
+          <mdb-icon fas icon="pencil-alt" class="prefix grey-text mr-2"></mdb-icon><span>Message</span>
+          <div class="md-form">
+            <textarea type="text" id="message" class="form-control p-2" rows="4" mdbInput formControlName="message"></textarea>
+          </div>
+          <h6 *ngIf="message.invalid && (message.dirty || message.touched)" class="error">
+            Input Invalid
+          </h6>
+
+        </div>
+
+        <div class="modal-footer d-flex justify-content-center">
+          <button class="btn btn-success" [disabled]="!myForm.valid">Send
+            <mdb-icon far icon="paper-plane" class="ml-1"></mdb-icon>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

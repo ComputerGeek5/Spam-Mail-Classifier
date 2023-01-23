@@ -1,0 +1,28 @@
+<div class="content">
+  <div *ngIf="success != ''" class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>{{ success }}</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div *ngIf="error != ''" class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>{{ error }}</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="error = '';">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <app-compose
+    (emitSuccessMessage)="handleSuccessMessage($event)"
+    (emitErrorMessage)="handleErrorMessage($event)"
+  ></app-compose>
+
+  <div *ngFor="let mail of inbox" class="card text-white text-white bg-secondary">
+    <div class="card-body">
+      <span class="mr-5"><em>{{ mail.createdAt }}</em></span>
+      <span class="message">{{ mail.subject }}</span>
+      <a [routerLink]="['/message']" [state]="{mail: mail, permissions: [permission.VIEW, permission.MARK, permission.DELETE]}" class="btn btn-sm btn-info float-right"><i class="fa-solid fa-eye"></i></a>
+    </div>
+  </div>
+</div>

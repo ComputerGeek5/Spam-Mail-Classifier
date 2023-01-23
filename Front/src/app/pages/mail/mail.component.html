@@ -1,0 +1,35 @@
+<div *ngIf="permissions.includes('VIEW')" class="content">
+  <div class="card w-100">
+    <div class="card-header text-center">
+      <h1>{{ mail.subject }}</h1>
+    </div>
+    <div class="card-body">
+      <p>{{ mail.message }}</p>
+    </div>
+    <div class="card-footer text-muted">
+      <h4 class="float-left">
+        <em>
+          From {{ mail.sender.username }} To {{ mail.receiver.username }}
+        </em>
+      </h4>
+      <h4 class="float-right">
+        <em>
+          {{ mail.createdAt }}
+        </em>
+      </h4>
+    </div>
+  </div>
+  <div class="row w-100">
+    <div class="col-4 text-center">
+      <button *ngIf="permissions.includes('MARK')" (click)="markAsRead()" type="button" class="btn btn-success btn-lg btn-block">Mark as read</button>
+      <button *ngIf="permissions.includes('UNREAD')" (click)="unMarkAsRead()" type="button" class="btn btn-success btn-lg btn-block">Unmark as read</button>
+      <button *ngIf="permissions.includes('UNSPAM')" (click)="unMarkAsSpam()" type="button" class="btn btn-success btn-lg btn-block">Unmark as spam</button>
+    </div>
+    <div class="col-4 text-center">
+      <button *ngIf="permissions.includes('MARK')" (click)="markAsSpam()" type="button" class="btn btn-primary btn-lg btn-block">Mark as spam</button>
+    </div>
+    <div class="col-4 text-center">
+      <button *ngIf="permissions.includes('DELETE')" (click)="delete()" type="button" class="btn btn-danger btn-lg btn-block">Delete</button>
+    </div>
+  </div>
+</div>
