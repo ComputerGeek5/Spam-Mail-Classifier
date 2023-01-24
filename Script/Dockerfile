@@ -1,15 +1,12 @@
-FROM python:latest
-
-WORKDIR /app
+FROM python:3.10-buster
 
 EXPOSE 7000
 
-COPY requirements.txt requirements.txt
+WORKDIR /app
 
-CMD ["pip3", "install", "--upgrade", "pip"]
-
-RUN pip install -r requirements.txt
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-CMD ["python3", "-m" , "flask", "run"]
+ENTRYPOINT [ "python3", "main.py" ]

@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  back_domain: "http://localhost:8000/mail/",
-  ml_domain: "http://127.0.0.1:7000/"
+  back_domain: 'http://localhost:9001/mail/',
+  ml_domain: 'http://localhost:9002/'
 };
 
 /*
