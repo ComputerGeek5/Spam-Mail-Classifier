@@ -1,6 +1,8 @@
 Spam Classifier App
 ===================
 
+![image](https://github.com/ComputerGeek5/Spam-Mail-Classifier/assets/78569367/0f6dc52a-c7f7-4f0c-9c02-706610826160)
+
 This is a Spam Classifier app that uses Python, Angular for the frontend, and Spring Boot on the backend to classify emails as either spam or not spam.
 
 Getting Started
@@ -37,10 +39,10 @@ To uninstall the Spam Classifier app, you can run the following command in your 
 
 `./uninstall.sh`
 
-License
--------
+Demo
+----
 
-This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+Watch a demo of the app [here](https://www.youtube.com/watch?v=PvLdi-2ax5s).
 
 Authors
 -------
