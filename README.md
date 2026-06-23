@@ -46,7 +46,7 @@ Watch a demo of the app [here](https://www.youtube.com/watch?v=PvLdi-2ax5s).
 
 Authors
 -------
--   [Drin Karkini](https://github.com/ComputerGeek5)
+-   [ComputerGeek5](https://github.com/ComputerGeek5)
 
 -   [Jon Mukaj](https://github.com/jonmukaj)
 
